@@ -66,21 +66,26 @@ v2](http://www.st.com/content/ccc/resource/technical/document/user_manual/65/e0/
 - K3 (2) ---> CN3 (7)  SW IO 
 - K3 (3) ---> CN3 (9)  SW CLK
 - K3 (4) ---> CN3 (15) NRST (reset)
-- K3 (5) ---> CN3 (20) GND (ground) ```
+- K3 (5) ---> CN3 (20) GND (ground) 
+```
 
 Após conectar o programador e o FSM-55, ligue o STLink na USB e digite o
 seguinte comando para programar o firmware:
 
-``` sudo openocd -f stlink-v2.cfg -c "program build/ehal.elf; reset run;
-shutdown" ```
+``` 
+sudo openocd -f stlink-v2.cfg -c "program build/ehal.elf; reset run;
+shutdown" 
+```
 
 A saída do programa anunciará que o firmware foi escrito com sucesso:
 
-``` ** Programming Started ** auto erase enabled Info : device id = 0x10006444
+``` 
+** Programming Started ** auto erase enabled Info : device id = 0x10006444
 Info : flash size = 16kbytes target state: halted target halted due to
 breakpoint, current mode: Thread xPSR: 0x61000000 pc: 0x2000003a msp:
 0x200004e0 wrote 4096 bytes from file build/ehal.elf in 0.473004s (8.457 KiB/s)
-** Programming Finished ** in procedure 'reset' in procedure 'ocd_bouncer' ```
+** Programming Finished ** in procedure 'reset' in procedure 'ocd_bouncer' 
+```
 
 ### Bus Pirate v3.6:
 
@@ -95,18 +100,27 @@ respectivamente: **>=v6.1 e >=4.4**.
 Após a compilacao do `openocd`, é preciso conectar os probes do Bus Pirate no
 FSM-55:
 
-``` Probe 3.3v ---> K3 (vdd) GND  ---> K3 (ground) MOSI ---> K3 (sw-io) CLK
----> K3 (sw-clk) ---> K3 (reset) ```
+``` 
+Probe 3.3v ---> K3 (vdd) 
+      GND  ---> K3 (ground) 
+      MOSI ---> K3 (sw-io) 
+      CLK  ---> K3 (sw-clk) 
+           ---> K3 (reset) 
+```
 
 O último passo é rodar o `openocd` com o arquivo de configuracao `openocd.cfg`
 (incluído neste repositório):
 
-``` sudo openocd -f openocd.cfg ```
+``` 
+sudo openocd -f openocd.cfg 
+```
 
 Abra outra console e digite os seguintes comandos para escrever o firmware
 compilado (e gerado na pasta `../chopstx/example-fsm-55/build`):
 
-``` telnet localhost 4444 init reset halt write ehal.elf shutdown ``` 
+```
+telnet localhost 4444 init reset halt write ehal.elf shutdown
+``` 
 
 Se os comandos acima forem executados com êxito, o FSM-55 estará reprogramado
 com o novo firmware.
