@@ -50,9 +50,10 @@ realizar a cópia, basta rodar `make` e o firmware será gerado no diretório
 Após a compilação do firmware, é necessário reprogramar o FSM-55. Existem
 atualmente 2 interfaces compatíveis:
 
-### :
+### FT2232H:
 
-Esta opção está documentada na página []().
+Esta opção utiliza o chip FT2232H (USB-para-serial) e está documentada no site 
+[All About Circuits](http://www.allaboutcircuits.com/technical-articles/getting-started-with-openocd-using-ft2232h-adapter-for-swd-debugging/).
 
 ### STLink v2:
 
