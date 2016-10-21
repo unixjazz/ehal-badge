@@ -35,7 +35,7 @@ Após a instalação, assegure-se de que o compilador está no PATH re-exportand
 variável de ambiente. Exemplo:
 
 ``` 
-export PATH="$PATH:/usr/src/gcc-arm-none-eabi-4_8-2014q3/bin/" 
+export PATH="$PATH:/opt/gcc-arm-none-eabi-4_8-2014q3/bin/" 
 ```
 
 Depois de configurado o ambiente de compilação cruzada, é preciso clonar o
